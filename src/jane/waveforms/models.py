@@ -40,7 +40,7 @@ class Path(models.Model):
 
 
 class File(models.Model):
-    path = models.ForeignKey(Path, related_name='files')
+    path = models.ForeignKey(Path, related_name='files', on_delete=models.CASCADE)
     name = models.CharField(max_length=255, db_index=True)
     size = models.IntegerField()
     gaps = models.IntegerField(default=0, db_index=True)
