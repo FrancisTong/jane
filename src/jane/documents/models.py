@@ -22,7 +22,7 @@ from django.contrib.auth.models import AnonymousUser
 from django.contrib.gis.db import models
 from django.contrib.gis.measure import Distance
 from django.contrib.postgres.fields import jsonb
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import connection
 from django.db.models.aggregates import Count
 from django.db.models.expressions import OrderBy, RawSQL
