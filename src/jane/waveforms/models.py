@@ -198,10 +198,12 @@ class Mapping(models.Model):
         max_length=255, blank=False, default=r"^.*$")
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     created_by = models.ForeignKey(User, null=True, editable=False,
-                                   related_name='mappings_created')
+                                   related_name='mappings_created',
+                                   on_delete=models.CASCADE)
     modified_at = models.DateTimeField(auto_now=True, editable=False)
     modified_by = models.ForeignKey(User, null=True, editable=False,
-                                    related_name='mappings_modified')
+                                    related_name='mappings_modified',
+                                   on_delete=models.CASCADE)
 
     def __str__(self):
         return "%s.%s.%s.%s | %s ==> %s.%s.%s.%s" % (
@@ -241,10 +243,12 @@ class Restriction(models.Model):
     comment = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     created_by = models.ForeignKey(User, null=True, editable=False,
-                                   related_name='restrictions_created')
+                                   related_name='restrictions_created',
+                                   on_delete=models.CASCADE)
     modified_at = models.DateTimeField(auto_now=True, editable=False)
     modified_by = models.ForeignKey(User, null=True, editable=False,
-                                    related_name='restrictions_modified')
+                                    related_name='restrictions_modified',
+                                    on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
         # ensure uppercase and no whitespaces around network/station ids
