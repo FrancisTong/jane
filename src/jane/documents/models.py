@@ -506,7 +506,7 @@ class DocumentIndex(models.Model):
     """
     Indexed values for a specific document.
     """
-    document = models.ForeignKey(Document, related_name='indices')
+    document = models.ForeignKey(Document, related_name='indices', on_delete=models.CASCADE)
     json = jsonb.JSONField(verbose_name="JSON")
     geometry = models.GeometryCollectionField(blank=True, null=True,
                                               geography=True)
