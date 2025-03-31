@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.conf import settings
-from django.conf.urls import include, url, static
+from django.urls import include, path, re_path
 from django.contrib.gis import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
@@ -10,20 +10,19 @@ admin.autodiscover()
 
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'', include('jane.waveforms.urls')),
-    url(r'', include('jane.documents.urls')),
-    url(r'', include('jane.jane.urls')),
-    url(r'^fdsnws/', include('jane.fdsnws.urls')),
+    path('admin/', admin.site.urls),
+    path('', include('jane.waveforms.urls')),
+    path('', include('jane.documents.urls')),
+    path('', include('jane.jane.urls')),
+    path('fdsnws/', include('jane.fdsnws.urls')),
 ]
 
 
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [
-        url(r'^media/(?P<path>.*)$', static.serve,
+        re_path(r'^media/(?P<path>.*)$', serve,
             {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
-        url(r'', include('django.contrib.staticfiles.urls')),
-        url(r'^__debug__/', include(debug_toolbar.urls)),
+        path('__debug__/', include(debug_toolbar.urls)),
     ]
     urlpatterns += staticfiles_urlpatterns()
