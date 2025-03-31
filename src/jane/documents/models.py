@@ -668,7 +668,8 @@ class DocumentIndexAttachment(models.Model):
                                    related_name='attachments_created',
                                    on_delete=models.CASCADE)
     modified_by = models.ForeignKey(settings.AUTH_USER_MODEL,
-                                    related_name='attachments_modified')
+                                    related_name='attachments_modified',
+                                    on_delete=models.CASCADE)
     objects = DocumentIndexAttachmentManager()
 
     class Meta:
