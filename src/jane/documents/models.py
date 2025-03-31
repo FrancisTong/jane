@@ -189,7 +189,8 @@ class Document(models.Model):
     modified_at = models.DateTimeField(auto_now=True, editable=False)
     # Users responsible for the aforementioned actions.
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL,
-                                   related_name='documents_created')
+                                   related_name='documents_created',
+                                   on_delete=models.CASCADE)
     modified_by = models.ForeignKey(settings.AUTH_USER_MODEL,
                                     related_name='documents_modified')
     objects = DocumentManager()
