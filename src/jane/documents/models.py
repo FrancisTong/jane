@@ -665,7 +665,8 @@ class DocumentIndexAttachment(models.Model):
     modified_at = models.DateTimeField(auto_now=True, editable=False)
     # Users responsible for the aforementioned actions.
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL,
-                                   related_name='attachments_created')
+                                   related_name='attachments_created',
+                                   on_delete=models.CASCADE)
     modified_by = models.ForeignKey(settings.AUTH_USER_MODEL,
                                     related_name='attachments_modified')
     objects = DocumentIndexAttachmentManager()
