@@ -171,7 +171,7 @@ class Document(models.Model):
     any type that is described by indices.
     """
     # The type of the document. Depends on the available Jane plug-ins.
-    document_type = models.ForeignKey(DocumentType, related_name='documents')
+    document_type = models.ForeignKey(DocumentType, related_name='documents', on_delete=models.CASCADE)
     # The name of that particular document. Oftentimes the filename. Unique
     # together with the document type to enable a nice REST API.
     name = models.CharField(max_length=255, db_index=True)
