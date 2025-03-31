@@ -192,7 +192,8 @@ class Document(models.Model):
                                    related_name='documents_created',
                                    on_delete=models.CASCADE)
     modified_by = models.ForeignKey(settings.AUTH_USER_MODEL,
-                                    related_name='documents_modified')
+                                    related_name='documents_modified',
+                                    on_delete=models.CASCADE)
     objects = DocumentManager()
 
     class Meta:
