@@ -655,7 +655,7 @@ class DocumentIndexAttachment(models.Model):
     """
     Attachments for one Document.
     """
-    index = models.ForeignKey(DocumentIndex, related_name='attachments')
+    index = models.ForeignKey(DocumentIndex, related_name='attachments', on_delete=models.CASCADE)
     category = models.CharField(max_length=50, db_index=True)
     content_type = models.CharField(max_length=255)
     data = models.BinaryField()
