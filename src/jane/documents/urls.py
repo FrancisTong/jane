@@ -37,7 +37,7 @@ urlpatterns = format_suffix_patterns(urlpatterns)
 router = OptionalTrailingSlashSimpleRouter(trailing_slash=False)
 router.register(prefix='documents/(?P<document_type>[a-zA-Z0-9]+)',
                 viewset=views.DocumentsView,
-                base_name="rest_documents")
+                basename="rest_documents")
 router.register(prefix='document_indices/(?P<document_type>[a-zA-Z0-9]+)',
                 viewset=views.DocumentIndicesView,
                 base_name="rest_document_indices")
