@@ -4,7 +4,7 @@ from django.conf import settings
 from django.urls import include, path, re_path
 from django.contrib.gis import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
+from django.views.static import serve
 
 admin.autodiscover()
 
