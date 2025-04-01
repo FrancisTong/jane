@@ -15,7 +15,7 @@ User = settings.AUTH_USER_MODEL
 
 class Path(models.Model):
     name = models.CharField(max_length=255, primary_key=True,
-                            validators=['validate_name'])
+                            validators=[validate_name])
     ctime = models.DateTimeField()
     mtime = models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
